@@ -1,0 +1,20 @@
+import unittest
+
+class test (unittest.TestCase):
+    def main(): 
+        print (triple(input('This program spits out the same number 3 times: ')))
+        
+def triple(n):
+    def tripleIt(n):
+        numberInt = int(n)
+        return n * 3
+    return tripleIt(n)
+    
+main()
+    
+This is my first time using the unit testing package from python, 
+I had used previous code from another assignment to test. 
+Im not sure how it is suppose to help with debugging seeing how in the virtual IDE i can use the dbugger that is offered online, 
+i wasnt sure exactly what to do, i will be waiting for Dr. Freidmans answer sheet
+    
+    
