@@ -1,0 +1,51 @@
+import matplotlib.pyplot as plt
+
+## 1.Problem Statement: The data that i choose to examine was one taken from 
+## http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/mlr/frames/frame.html
+## I wanted to analyze correlation between the data of how annual percipitation would effect Adult antelope Size population,
+## how adult antelope Size population effects Spring Fawn count, 
+## and how winter Severity can also effect the size of adult deer population.
+
+## 2.Related Work: Since most of my college career consisted of relying on statistical analysis to examine patterns, data, and 
+## correlations, it was only natural for me to want to find answers from the data at hand to come up with visualizations that 
+## made sense. Most of my analysis and visual work comes from using Rstudio rather than python so i tried to do something
+## simple and recognizable for my first visual in Rstudio. 
+
+## 3.Solution: The way that i went about solving the problem was by using correlation analysis, the analysis seeks to find out
+## if there is any cause and effect relation within the data. We can see that the larger the adult population is the more fawns that are 
+## birthed during the spring time, this means that there is a positive correlation between the two. The same goes for the more 
+## percipitation the more the adult population grows, this gives us another positive correlation analysis. On the flip side,
+## we can see that the more severe the winter is the smaller the antelope popualtion is. 
+
+import pandas as pd
+from pandas import ExcelWriter
+from pandas import ExcelFile
+df = pd.read_excel(r'C:\Users\Cameron Willliams\Downloads\mlr01.xls')
+print(df)
+
+Sp.Faw.Cnt  Ad.Sz.pop  An.Perc.  Win.Sev.Ind
+0         2.9        9.2      13.2            2
+1         2.4        8.7      11.5            3
+2         2.0        7.2      10.8            4
+3         2.3        8.5      12.3            2
+4         3.2        9.6      12.6            3
+5         1.9        6.8      10.6            5
+6         3.4        9.7      14.1            1
+7         2.1        7.9      11.2            3
+
+plt.plot('An.Perc.', 'Sp.Faw.Cnt', data = df)
+
+plt.scatter('An.Perc.', 'Ad.Sz.pop', data = df)
+plt.xlabel('Annual Percipitation')
+plt.ylabel(' Adult Size Population')
+plt.show()
+
+plt.scatter('Ad.Sz.pop', 'Sp.Faw.Cnt', data = df)
+plt.xlabel('Adult Size Population')
+plt.ylabel('Spring Fawn Count')
+plt.show()
+
+plt.scatter('Win.Sev.Ind', 'Ad.Sz.pop', data = df)
+plt.xlabel('Winter Seveirty Index')
+plt.ylabel('Adult Size Popularity')
+plt.show()
